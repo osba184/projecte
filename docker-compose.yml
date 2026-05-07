@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: asix
+    volumes:
+      - ./web/sql/botiga.sql:/docker-entrypoint-initdb.d/botiga.sql
+    ports:
+      - "3306:3306"
